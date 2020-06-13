@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "C:\\Users\\USER\\Anaconda3",
+    "workbench.colorTheme": "Default Light+",
+    "workbench.activityBar.visible": true,
+    "editor.minimap.enabled": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+}
