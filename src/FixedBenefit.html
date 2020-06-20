@@ -1,146 +1,173 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <!-- <script src="FixedBenefit.js" ></script> -->
-        <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-        <script type="text/javascript" src="js/jquery.zip2addr.js"></script>
-        <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
-        <title> 定額給付金申請用サイト </title>
-    </head>
-    <body>
-    <form action="" method="get" class="定額給付金申請サイト">
+<head>
+    <meta charset="utf-8">
+    <title> 定額給付金申請用サイト </title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <form id="applicant_form" action="">
 
         <br><h1> 定額給付金申請用サイト </h1>
 
-        <ol>
-            <!-- <li> -->
-                <br><label for="name"> 申請者氏名 (必須)</label>
-                    <br><input type="text" id="name" name="name" required></br>
-
-                <br><label for="name"> 申請者ふりがな (必須)</label>
-                    <br><input type="text" id="name" name="name" required></br>
+        <div id="form">
+        <ul>
+                <br>
+                <li class="applicant_name"><dt>申請者氏名<span> (必須)</span></dt>
+                    <input type="text" name="name" required >
+                    <p class="error">ここにエラー文がはいります。</p>
+                </li>
                 
-                    <br><br><label for="gender"> 性別 (必須)</br>
-                        <br><input type="radio" name="gender" value="male">男性</br>
-                        <br><input type="radio" name="gender" value="female">女性</br></label>
-    
-                        </br>
+                <br>
+                <li class="furigana"><dt>申請者ふりがな (必須)</dt>
+                    <input type="text" name="furigana" required ></br>
+                    <p class="error">ここにエラー文がはいります。</p>
+                </li>
                 
-                        <div class="h-adr">
-                            <span class="p-country-name" style="display:none;">Japan</span>
-                    郵便番号 (必須) ※ハイフンあり、なしどちらでも可
-                    <br>
-                    <input type="text" class="p-postal-code" size="8" maxlength="8" )</br>
+                <br>
+                <li class="gender"> 性別 (必須)</br>
+                    <label><input type="radio" name="gender" value="male">男性</br></label>
+                    <label><input type="radio" name="gender" value="female">女性</br></label>
+                    <p class="error"></p>
+                </li>
+                    
+                
+                <br><br>
+                <li class="postalcode">郵便番号 (必須)
+                    
+                    <div class="h-adr">
+                    <span class="p-country-name" style="display:none;">Japan</span>
+                    <input type="text" class="p-postal-code" size="8" maxlength="8" placeholder="例) 1050001" required></br>
+                    <br>都道府県 ※郵便番号を入れると自動入力されます
                     <br><input type="text" class="p-region" /><br>
-                    <input type="text" class="p-locality p-street-address p-extended-address" /><br>
+                    市区町村 ※郵便番号を入れると自動入力されます
+                    <br><input type="text" class="p-locality p-street-address p-extended-address" /><br>
+                    <p class="error"></p>
                 </div>
-                <br><label for="address"> 番地・建物名 (必須)</label>
-                <br><input type="text" id="address2" name="address2" size="50"></br> </br>
-                <br>
-                <!-- <label for="zipcode">  </label> -->
-                    
-                        <br><label for="dateofbirth"> 生年月日 (必須)</label>
+                </li>
+            
+            
+                    <li class="address"> 番地・建物名 (必須)
+                        <br><input type="text" id="address2" name="address2" size="50" required ></br>
+                    </li>
+                        
+                    <br><li class="dateofbirth"> 生年月日 (必須)
                         <br><input type="date" id="dateofbirth" name="dateofbirth" required ></br>
-                        
-                        <br><label for="telnumber"> 電話番号  (必須) ※ハイフンなしで入力 </label>
-                        <br>
-                        <input type="tel" id="telnumber1" name="telnumber1" required >
-                    </br>
-    
-                    <br><label for="mailaddress"> メールアドレス (必須) ※携帯電話のアドレスは不可 </label>
-                    <br><input type="email" id="mailaddress" name="mailaddress" required ></br>
+                    </li>        
+                    <br><li class="telnumber"> 電話番号  (必須) ※半角数字で入力、ハイフンなし
+                        <br><input type="tel" id="telnumber1" placeholder="例) 0312345678" required ></br>
+                    </li>
                     
-                    <br><label for="mailaddressforconfirm"> メールアドレス (必須) (確認用) </label>
-                    <br><input type="email" id="mailaddressforconfirm" name="mailaddressforconfirm" required ></br>
-                    
-                <br><label for="mynumber"> マイナンバー ※ハイフンなしで入力 </label>
-                <br><input type="number" id="mynumber" name="applicant_mynumber" required ></br>
-    
-                <br><br><label for="identityverificationdocuments"> 本人確認書類 (必須) </br>
-                    <br><input type="radio" name="document" value="applicant_license">免許証</br>
-                    <br><input type="radio" name="document" value="applicant_insurance_card">保険証</br>
-                    <br><input type="radio" name="document" value="applicant_mynumbercard">マイナンバーカード</br></label>
-
-                    <br>
-
-                    <input type="file" id="seifile"></input>
-
-                    <script>
-        
-                            var obj1 = document.getElementById("seifile");
-
-                            obj1.addEventListener("change", function (evt) {
-                                var file = evt.target.files;
-                                    alert(file[0].name + "を取得しました。");
+                    <br><li class="mailaddress"> メールアドレス (必須)
+                        <br><input type="email" id="mailaddress" placeholder="例) abcd@gmail.com" required ></br>
+                    </li>
                                 
-                            }, false);
+                    <br><li class="mailaddressforconfirm"> メールアドレス (必須) (確認用)
+                        <br><input type="email" id="mailaddressforconfirm" placeholder="例) abcd@gmail.com" required ></br>
+                    </li>
+                                    
+                    <br><li class="mynumber"> マイナンバー ※ハイフンなしで入力
+                        <br><input type="number" id="mynumber" name="applicant_mynumber" required ></br>
+                    </li>
+                                        
+                    <br><br><li class="identityverificationdocuments"> 本人確認書類 (必須) </br>
+                        <br><label><input type="radio" name="document" value="applicant_license">免許証</br></label>
+                        <label><input type="radio" name="document" value="applicant_insurance_card">保険証</br></label>
+                        <label><input type="radio" name="document" value="applicant_mynumbercard">マイナンバーカード</br></label>
+                    </li>
+                                                
+                        <br>
+                            <input type="file" id="seifile"></input>
+                                <script>
+                                    var obj1 = document.getElementById("seifile");
+                                        obj1.addEventListener("change", function (evt) {
+                                        var file = evt.target.files;
+                                        alert(file[0].name + "を取得しました。");
+                                        }, false);
+                                </script>
 
-                        </script>
+                        <br></br><button class="uploaddocuments" type="button">書類をアップロードする</button></br>
+                                        
+                        <br><br><li class="QA1"> 新型コロナウイルス(COVID-19)により、仕事に影響が出ましたか？ <br>
+                                            
+                        <br><label><input type="radio" name="influence" value="influence_big"> 大きく影響が出た </br></label>
+                        <label><input type="radio" name="influence" value="influence_middle"> 影響が出た </br></label>
+                        <label><input type="radio" name="influence" value="influence_small"> 多少影響が出た </br></label>
+                        </li>
+                                            
+                        <br><br><br></br> 定額給付金の支給方法を選択してください。 </br>
+                            
+                        <br>
+                        </br>
+                        <li>
+                        <label>
+                            <input type="radio" name="method" value="amazon_giftcard"> Amazonギフト券 ※宛先のメールアドレスを入力してください</br>
+                        </label>
+                        <br><input type="text" name="method" placeholder="例) abcd@gmail.com">
+                        </li>
+                        <label><input type="checkbox" name="method_check" value=""> 申請者のアドレスに送る </br></label>
+                            
+                            
+                            
+                            <br><br><br><br><br>
+                            
+                            <li>
+                                <label>
+                                    <input type="radio" name="method" value="check"> 小切手 ※申請者の住所と同じ場合はチェックしてください
+                                </label>
+                            </li>
+                            
+                        <br>
+                            
+                                <label>
+                                    <input type="checkbox" name="same_address" value=""> 申請者の住所に送る </br>
+                                </label>
+                            
+                        </li>
 
-            <br></br><button class="uploaddocuments" type="button">書類をアップロードする</button></br>
-    
-        <br><br><label for="QA1"> 新型コロナウイルス(COVID-19)により、仕事に影響が出ましたか？ <br></label>
-
-            <br><label><input type="radio" name="influence" value="influence_big"> 大きく影響が出た </br></label>
-            <br><label><input type="radio" name="influence" value="influence_middle"> 影響が出た </br></label>
-            <br><label><input type="radio" name="influence" value="influence_small"> 多少影響が出た </br></label>
-
-    <label for="paymentmethod"> <br></br> 定額給付金の支給方法を選択してください。 </br></label>
-
-        <br><input type="radio" id="method" name="method" value="amazon_giftcard"> Amazonギフト券 ※宛先のメールアドレスを入力してください</br>
-        <br><input type="text" id="method" name="method" name="mailaddressforgiftcard">
-            <input type="checkbox" name="method_check" value=""> 申請者のアドレスに送る </br>
-
-        <br><input type="radio" name="method" value="check"> 小切手 ※申請者の住所と同じ場合はチェックしてください
-
-        <br><input type="checkbox" name="same_address" value=""> 申請者の住所に送る </br>
-
-        <br><div class="h-adr">
-                <span class="p-country-name" style="display:none;">Japan</span>
-                郵便番号 (必須) ※ハイフンあり、なしどちらでも可
-                <br><input type="text" class="p-postal-code" size="8" maxlength="8" )</br>
-                <br><input type="text" class="p-region" /><br>
-                    <input type="text" class="p-locality p-street-address p-extended-address" /><br>
-            </div>
-                <br><label for="address"> 番地・建物名 (必須)</label>
-                <br><input type="text" id="address2" name="address2" size="50"></br> </br>
-                <br>
-
-        <!-- <br><label for="zipcode"> 郵便番号 ※ハイフンなしで入力 </label>
-        <br><input type="number" id="zipcode" name="zipcode" required >
-
-            <button class="searchzipcode" type="button">郵便番号から住所を取得 </button> -->
-
-<br></br>
-
-    <label for="address"> 送付先住所 </label>
-        <br><input type="text" id="addressforsend" name="addressforsend" size="50"></br>
-
-<!-- <br><input type="text" id="addressforcheck" name="addressforcheck"> -->
-
-        <br><input type="radio" id="method" name="method" value="bank_transfer"> 銀行振込 ※店番、口座番号をハイフンなしで入力してください </br>
-            <br><input type="number" id="account_number1" name="account_number1"> - 
-                    <input type="number" id="account_number2" name="account_number2"></br>
-
-<br></br>
-
-                        <label for="identityverificationdocuments"> 申請内容をメールで送付したい場合はチェックしてください。 </label>
-                        <br><input type="checkbox" name="reply_mail" value=""> 送付する </br>
-                        <!-- <br><input type="radio" name="applicant_insurance_card" value=""> いいえ </br> -->
-                        
-                        <br></br><button class="confirminput" type="button">
-                            入力内容を確認する
-                        </button>
-                        
-                        
-                        <!-- </li> -->
-                        
-                        
-                    </ol>
+                        <br><br><br><br><br>
+                        <li class="postalcode">郵便番号 (必須)
+                    
+                            <div class="h-adr">
+                            <span class="p-country-name" style="display:none;">Japan</span>
+                            <input type="text" class="p-postal-code" size="8" maxlength="8" placeholder="例) 1050001" required></br>
+                            <br>都道府県 ※郵便番号を入れると自動入力されます
+                            <br><input type="text" class="p-region" /><br>
+                            市区町村 ※郵便番号を入れると自動入力されます
+                            <br><input type="text" class="p-locality p-street-address p-extended-address" /><br>
+                            <p class="error"></p>
+                        </div>
+                        </li>
                     
                     
-                </form>
+                            <li class="address"> 番地・建物名 (必須)
+                                <br><input type="text" id="address2" name="address2" size="50" required ></br>
+                            </li>
+                                                
+                            <br><label><input type="radio" id="method" name="method" value="bank_transfer"> 銀行振込 ※店番、口座番号をハイフンなしで入力してください </br></label>
+                            <br><input type="number" id="account_number1" name="account_number1"> - 
+                            <input type="number" id="account_number2" name="account_number2"></br>
+                            
+                            <br></br>
+                        
+                            <br><br><li class="identityverificationdocuments"> 申請内容をメールで送付したい場合はチェックしてください。 </label>
+                            <br><label><input type="checkbox" name="reply_mail" value=""> 送付する </label></br>
+                            
+                        </div>
+                            
+                            <br>
+                            <p id="confirminput">
+                                <button>入力内容を確認する</button>
+                            </p>
+        </ul>
+
+        <!-- jQuery -->
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <!-- javascript -->
+        <script src="FixedBenefit.js" ></script>
+        <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
                 
-            </body>
-            </html>
+        </form>
+    </body>
+</html>

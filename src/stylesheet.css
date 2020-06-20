@@ -1,0 +1,48 @@
+/* ul, liタグの定義  */
+ul li {
+    list-style: none;
+}
+
+/* labelタグの定義 */
+label {
+    margin-right: 10px;
+    width: 100px;
+    float: left;
+}
+
+/* label_inputの定義 */
+label input {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin:auto;
+}
+
+/* buttonの定義 */
+button {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 200px;
+    margin:auto;
+}
+
+
+/* form#applicant_form > div > dl > dd > p.error {
+    display: none;
+    color: red;
+    padding: 0;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+} */
+
+/* エラー表示部 */
+
+form#applicant_form > div > ul > li > p.error {
+    display: none;
+    color: red;
+    padding: 0;
+    margin: 5px 0 0 0;
+    font-size: 14px;
+}
