@@ -87,7 +87,11 @@
                                         }, false);
                                 </script>
 
-                        <br></br><button class="uploaddocuments" type="button">書類をアップロードする</button></br>
+                        <br></br>
+                        <div>
+                            <p id="uploaddocuments"></p>
+                                <button style="position: relative; left:0px; top: 0px;width: 70%;padding: 7px;font-size: 14px;">書類をアップロードする</button></br>
+                        </div>
                                         
                         <br><br><li class="QA1"> 新型コロナウイルス(COVID-19)により、仕事に影響が出ましたか？ <br>
                                             
@@ -146,8 +150,23 @@
                             </li>
                                                 
                             <br><label><input type="radio" id="method" name="method" value="bank_transfer"> 銀行振込 ※店番、口座番号をハイフンなしで入力してください </br></label>
-                            <br><input type="number" id="account_number1" name="account_number1"> - 
-                            <input type="number" id="account_number2" name="account_number2"></br>
+                            <br>
+                            <div>
+                                <br><br><br><br><br><p>銀行コード</p>
+                                <input type="text" name="bank_code">
+                            </div>
+                            <div>
+                                <p>銀行名</p>
+                                <input type="text" name="bank_name"></br>
+                            </div>
+                            <div>
+                                <p>支店コード</p>
+                                <input type="text" name="branch_code"></br>
+                            </div>
+                            <div>
+                                <p>支店名</p>
+                                <input type="text" name="branch_name"></br>
+                            </div>
                             
                             <br></br>
                         
